@@ -43,6 +43,7 @@ var assertUrlValid = function(url) {
     return url.toString();;
 };
 
+
 // asynch
 var checkUrl = function(url, checksfile) {
     request = rest.get(url);
@@ -50,15 +51,24 @@ var checkUrl = function(url, checksfile) {
 	    console.log("Invalid url %s. Exiting.", url);
 	    process.exit(1);
     });
-    request.addListener('success', function(data, checksfile) {
+    request.addListener('success', function(data) {
 	    console.log("Retrieved data");
-	    console.log("Checks? %s", checksfile.toString());
+	    console.log("Checks? %s", program.checks);
 
 	var input = cheerioUrl(data);
-	return checkHtml(input, checksfile);
+	$ = input; 
+	//return checkHtml(input, checksfile);
+	var checks = loadChecks(checksfile).sort();
+	var out = {};
+	for(var ii in checks) {
+            var present = $(checks[ii]).length > 0;
+            out[checks[ii]] = present;
+	}
+	//return out;
+	var outJson = JSON.stringify(out, null, 4);
+	console.log(outJson);
     });
 };
-
 
 var cheerioHtmlFile = function(htmlfile) {
     return cheerio.load(fs.readFileSync(htmlfile));
@@ -116,6 +126,7 @@ if(require.main == module) {
 
 	console.log("processing url");
 	// todo: need to do the outJson stuff on complete of checkUrl...
+
 	var checkJson = checkUrl(program.url, program.checks);
 	var outJson = JSON.stringify(checkJson, null, 4);
 	console.log(outJson);
