@@ -52,19 +52,16 @@ var checkUrl = function(url, checksfile) {
 	    process.exit(1);
     });
     request.addListener('success', function(data) {
-	    console.log("Retrieved data");
-	    console.log("Checks? %s", program.checks);
+	    console.log("Retrieved html");
 
-	var input = cheerioUrl(data);
-	$ = input; 
-	//return checkHtml(input, checksfile);
+	$ = cheerioUrl(data); 
 	var checks = loadChecks(checksfile).sort();
 	var out = {};
 	for(var ii in checks) {
             var present = $(checks[ii]).length > 0;
             out[checks[ii]] = present;
 	}
-	//return out;
+
 	var outJson = JSON.stringify(out, null, 4);
 	console.log(outJson);
     });
@@ -93,8 +90,9 @@ var checkHtmlFile = function(htmlfile, checksfile) {
     return out;
 };
 
+// todo: callback
 var checkHtml = function(cheerioInput, checksfile) {
-    $ = cheerioInput; //cheerioHtmlFile(htmlfile);
+    $ = cheerioInput;
     var checks = loadChecks(checksfile).sort();
     var out = {};
     for(var ii in checks) {
@@ -124,12 +122,11 @@ if(require.main == module) {
 
     if (program.url) {
 
-	console.log("processing url");
 	// todo: need to do the outJson stuff on complete of checkUrl...
 
 	var checkJson = checkUrl(program.url, program.checks);
-	var outJson = JSON.stringify(checkJson, null, 4);
-	console.log(outJson);
+	//var outJson = JSON.stringify(checkJson, null, 4);
+	//console.log(outJson);
     }
     else {
 	var checkJson = checkHtmlFile(program.file, program.checks);
