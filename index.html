@@ -3,13 +3,41 @@
   <head>
     <meta charset="utf-8">
     <title>My First Bitstarter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fbootstrap-combined.no-icons.min.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css">
+    <link rel="stylesheet" href="https://d396qusza40orc.cloudfront.net/startup%2Fcode%2Fsocial-buttons.css">
+        
     <style type="text/css">
 
+      /* Large desktop */
+      @media (min-width: 980px) {
+        body {
+          padding-top: 60px;
+        }
+        .linediv-l {
+          border-right: 1px white solid;
+        }
+        .linediv-r {
+          border-left: 1px white solid;
+        }
+      }
+      /* Landscape phones and down */
+      @media (min-width: 480px) {
+        .copy {
+          padding: 2.5% 10%;
+        }
+        .linediv-l {
+          border-bottom: 1px white solid;
+        }
+        .linediv-r {
+          border-top: 1px white solid;
+        }
+      }
       /* All form factors */
       body {
         font-family: 'Open Sans', Helvetica, Arial, sans-serif;
-        color: black;
       }
       .heading, .subheading {
         font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
