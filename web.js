@@ -8,7 +8,7 @@ app.get('/', function(request, response) {
   response.send(buf.toString());
 });
 
-app.use(express.static('/home/ubuntu/bitstarter'));
+app.use(express.static(__dirname));
 
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
