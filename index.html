@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="http://twitter.github.io/bootstrap/assets/js/html5shiv.js"></script>
+    <![endif]-->
     <meta charset="utf-8">
     <title>eBoatswain - Your online bos'n</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,15 +105,21 @@
 
       /* http://support.addthis.com/customer/portal/questions/1136093-share-buttons-in-center-position */      
       div.addthis_toolbox {
-        width:180px;
+        align: center;
+        width:320px;
         margin: 0 auto;
       }
     </style>
 
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="http://twitter.github.io/bootstrap/assets/js/html5shiv.js"></script>
-    <![endif]-->
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-42930082-1', 'eboatswain.com');
+      ga('send', 'pageview');
+    </script>
   </head>
   <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -184,22 +194,18 @@
 	  <button class="btn btn-success btn-larger">Preorder</button>
 	</div>
 	<div class="span8 offset2 social">
-<!-- AddThis Button BEGIN -->
-<div class="addthis_toolbox addthis_default_style addthis_32x32_style">
-<a class="addthis_button_preferred_1"></a>
-<a class="addthis_button_preferred_2"></a>
-<a class="addthis_button_preferred_3"></a>
-<a class="addthis_button_preferred_4"></a>
-<a class="addthis_button_compact"></a>
-<a class="addthis_counter addthis_bubble_style"></a>
-</div>
-<script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
-<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51feb45a5ddc84ca"></script>
-<!-- AddThis Button END -->
-
-
-	 <a href="http://twitter.com/eboatswain" target="_blank"><button class="btn btn-twitter"><i class="icon-twitter"></i> | Twitter</button></a>
-	 <a href="http://facebook.com/eboatswain" target="_blank"><button class="btn btn-facebook"><i class="icon-facebook"></i> | Facebook</button></a>
+	  <!-- AddThis Button BEGIN -->
+	  <div class="addthis_toolbox addthis_default_style addthis_32x32_style">
+	    <a class="addthis_button_facebook"></a>
+	    <a class="addthis_button_twitter"></a>
+	    <a class="addthis_button_pinterest_share"></a>
+	    <a class="addthis_button_google_plusone_share"></a>
+	    <a class="addthis_button_compact"></a>
+	    <a class="addthis_counter addthis_bubble_style"></a>
+	  </div>
+	  <script type="text/javascript">var addthis_config = {"data_track_addressbar":true};</script>
+	  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-51feb45a5ddc84ca"></script>
+	  <!-- AddThis Button END -->
 	</div>
       </div> <!-- actions -->
     </div> <!-- container -->
